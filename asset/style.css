@@ -148,6 +148,7 @@ td {
 #showon {
     text-align: center;
     visibility: hidden;
+    color: white;
 }
 
 .menu {
@@ -185,7 +186,7 @@ td {
 }
 
 #memberS {
-    visibility: hidden;
+    display: none;
     text-align: center;
     font-size: 25px;
     margin-top: 20px;

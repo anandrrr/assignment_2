@@ -10,29 +10,30 @@ class data {
 }
 
 function fillIt() {
-    var tab = document.getElementById('regData');
+    var tab = document.querySelector('.tble');
     var table = document.getElementById('regData').getElementsByTagName('tbody')[0];
     var retrievedData = localStorage.getItem("FormData");
     var arr = JSON.parse(retrievedData);
     var sh = document.getElementById('memberS');
+    
+    if (arr==null) {
+            sh.style.display = "block";
+            tab.style.display = "none";
+    } else {
+        sh.style.display = "none";
+        tab.style.display = "block";
+        table.innerHTML = "";
 
-        if (arr.length==0) {
-                sh.style.visibility = "visible";
-                tab.style.visibility = "hidden";
-        } else {
-            sh.style.visibility = "hidden";
-            tab.style.visibility = "visible";
-
-            for(i=0; i< arr.length; i++) {
-                var row = table.insertRow();
-                var c1 = row.insertCell(0);
-                var c2 = row.insertCell(1);
-                var c3 = row.insertCell(2);
-                c1.innerHTML = arr[i].name;
-                c2.innerHTML = arr[i].email;
-                c3.innerHTML = arr[i].gender;
-            }
+        for(i=0; i< arr.length; i++) {
+            var row = table.insertRow();
+            var c1 = row.insertCell(0);
+            var c2 = row.insertCell(1);
+            var c3 = row.insertCell(2);
+            c1.innerHTML = arr[i].name;
+            c2.innerHTML = arr[i].email;
+            c3.innerHTML = arr[i].gender;
         }
+    }
 };
 
 var arr = [];
