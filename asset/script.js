@@ -25,8 +25,9 @@ function fillIt() {
         sh.style.display = "none";
         tab.style.display = "block";
         table.innerHTML="";
-
+        var flag= true;
         for(i=0; i< arr.length; i++) {
+            flag = false;
             var row = table.insertRow();
             var c1 = row.insertCell(0);
             var c2 = row.insertCell(1);
@@ -34,6 +35,10 @@ function fillIt() {
             c1.innerHTML = arr[i].name;
             c2.innerHTML = arr[i].email;
             c3.innerHTML = arr[i].gender;
+        }
+        if (flag) {
+            sh.style.display = "block";
+            tab.style.display = "none";
         }
     }
 };
